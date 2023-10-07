@@ -2,7 +2,7 @@
 Contemporary Issues in Software Engineering Semester 2 2023
 
 Team members:
-Hammad Naik
-Shahir Khairati
-Toryn Pope
+Hammad Naik,
+Shahir Khairati,
+Toryn Pope,
 Putheara Uth
