@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
           <a href="/intro">Intro to SPEED</a>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold }}>
-          <a href="/submit">Submit an Article</a>
+          <a href="/submit">Submit Evidence</a>
         </li>
       </ul>
     </nav>
