@@ -8,6 +8,7 @@ const IndexPage: React.FC = () => {
     <div style={styles.container}>
       <Navbar /> {/* Include the Navbar component here */}
       <h1 style={styles.heading}>SPEED</h1>
+      <h2 style={styles.subheading}>Software Practice Empirical Evidence Database </h2>
       <div style={styles.searchContainer}>
         <input type="text" placeholder="Search SPEED..." style={styles.searchInput} />
         <div style={styles.searchIcon}>🔍</div>
@@ -41,6 +42,12 @@ const styles = {
     fontFamily: 'NextFont', // Apply the font here
     fontSize: '4rem',
     color: '#fff',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+  },
+  subheading: {
+    fontFamily: 'Courier New', // Apply the font here
+    fontSize: '0.75rem',
+    color: '#51a31e',
     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
   },
   searchContainer: {
