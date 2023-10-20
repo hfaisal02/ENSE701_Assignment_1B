@@ -61,7 +61,7 @@ const styles = {
   searchIcon: {
     fontSize: '2rem', // Increase the font size for the magnifying glass
   },
-  searchButton: {
+  searchButton: {  // searchButton adjustments
     padding: '10px 20px',
     fontSize: '1rem',
     backgroundColor: '#737373',
