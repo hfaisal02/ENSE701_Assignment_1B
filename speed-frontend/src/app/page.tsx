@@ -1,19 +1,15 @@
 // pages/index.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import './globals.css'; // Import the CSS file
 import Navbar from '../components/Navbar'; // Import the Navbar component
 
 const IndexPage: React.FC = () => {
-  const [searchValue, setSearchValue] = useState('');
 
-  const searchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
+  //The following method is obsolete
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     //Nav to search results page
-    console.log("Searching for:", searchValue);
+    console.log("Searching for...");
   };
   return (
     <div style={styles.container}>
