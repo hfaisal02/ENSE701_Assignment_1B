@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
           <a href="/intro">Intro to SPEED</a>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
-          <Link href="speed-frontend\src\app\SubmitArticle.tsx">Submit Evidence</Link>
+          <Link href="submit">Submit Evidence</Link>
         </li>
       </ul>
     </nav>
