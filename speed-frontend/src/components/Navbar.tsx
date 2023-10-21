@@ -4,15 +4,15 @@ import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
-    <nav style={styles.navbar}>
+      <nav style={styles.navbar as React.CSSProperties}>
       <ul style={styles.navList}>
-        <li style={{ ...styles.navItem, ...styles.navItemBold }}>
+      <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <a href="/">Home Page</a>
         </li>
-        <li style={{ ...styles.navItem, ...styles.navItemBold }}>
+        <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <a href="/intro">Intro to SPEED</a>
         </li>
-        <li style={{ ...styles.navItem, ...styles.navItemBold }}>
+        <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <Link href="speed-frontend\src\app\SubmitArticle.tsx">Submit Evidence</Link>
         </li>
       </ul>
