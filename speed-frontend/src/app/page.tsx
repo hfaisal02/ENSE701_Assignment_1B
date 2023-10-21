@@ -1,23 +1,33 @@
 // pages/index.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import './globals.css'; // Import the CSS file
 import Navbar from '../components/Navbar'; // Import the Navbar component
 
 const IndexPage: React.FC = () => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const searchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    //Nav to search results page
+    console.log("Searching for:", searchValue);
+  };
   return (
     <div style={styles.container}>
       <Navbar /> {/* Include the Navbar component here */}
       <h1 style={styles.heading}>SPEED</h1>
       <h2 style={styles.subheading}>Software Practice Empirical Evidence Database </h2>
-      <div style={styles.searchContainer}>
+      <div style={styles.searchContainer as React.CSSProperties}>
         <input type="text" placeholder="Search SPEED..." style={styles.searchInput} />
         <div style={styles.searchIcon}>🔍</div>
         <div style={styles.searchButton}>Search</div> {/* Add a "Search" button */}
       </div>
     </div>
   );
-};
-
+  }
 const styles = {
   container: {
     display: 'flex',
