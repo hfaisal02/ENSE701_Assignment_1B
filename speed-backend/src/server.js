@@ -28,7 +28,22 @@ async function run() {
 run().catch(console.dir);
 
 // Define your routes and APIs here
+app.get('/search', async (req, res) => {
+  const searchTerm = req.query.searchTerm;
+  try {
+    // Customize your MongoDB query based on your data structure
+    const results = await yourMongoDBCollection.find({ name: searchTerm }).toArray();
 
+    if (results.length > 0) {
+      res.json(results);
+    } else {
+      res.status(404).json({ error: 'No matching records found' });
+    }
+  } catch (error) {
+    console.error('Error searching:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -1,5 +1,6 @@
 // components/Navbar.tsx
 import React from 'react';
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar: React.FC = () => {
           <a href="/intro">Intro to SPEED</a>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold }}>
-          <a href="/submit">Submit Evidence</a>
+          <Link href="speed-frontend\src\app\SubmitArticle.tsx">Submit Evidence</Link>
         </li>
       </ul>
     </nav>
