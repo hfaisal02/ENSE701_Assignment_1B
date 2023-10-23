@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import axios from 'axios'; // You'll need to import Axios or your preferred HTTP client
-=======
-import axios from 'axios';
 import Navbar from '../components/Navbar';
->>>>>>> 92e2bc96f8789c3e9613dd6b9560f5f98ca2ff69
 
 
 const SubmitArticle: React.FC = () => {
@@ -42,7 +38,6 @@ const SubmitArticle: React.FC = () => {
 };
 
   return (
-<<<<<<< HEAD
       <div style={styles.container as React.CSSProperties}>
       <form onSubmit={handleSubmit}>
         <label>Title:
@@ -66,36 +61,8 @@ const SubmitArticle: React.FC = () => {
         </label>
         <br />
         <label>Abstract:
-=======
-    <div style={styles.container as React.CSSProperties}>
-      <Navbar/> {/*Navbar Component*/}
-      <h1 style={styles.heading}>Submit Evidence</h1> {/* New heading */}
-      <form onSubmit={handleSubmit}>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>Title:</label>
-          <input type="text" name="title" value={articleData.title} onChange={handleChange} />
-        </div>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>Authors:</label>
-          <input type="text" name="authors" value={articleData.authors} onChange={handleChange} />
-        </div>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>Year:</label>
-          <input type="number" name="year" value={articleData.year} onChange={handleChange} />
-        </div>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>Journal/Conference:</label>
-          <input type="text" name="journal" value={articleData.journal} onChange={handleChange} />
-        </div>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>DOI:</label>
-          <input type="text" name="doi" value={articleData.doi} onChange={handleChange} />
-        </div>
-        <div style={styles.container as React.CSSProperties}>
-          <label style={styles.label}>Abstract:</label>
->>>>>>> 92e2bc96f8789c3e9613dd6b9560f5f98ca2ff69
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
-        </div>
+        </label>
         <button type="submit" style={styles.button}>Submit Article</button>
         {submissionStatus && <p style={{ color: '#ffffff' }}>{submissionStatus}</p>}
       </form>
@@ -111,8 +78,6 @@ const styles = {
     justifyContent: 'center',
     height: '100vh',
   },
-<<<<<<< HEAD
-=======
   button: {
     marginTop: '20px',
     alignSelf: 'center',
@@ -131,14 +96,11 @@ const styles = {
     alignItems: 'flex-start',
     marginBottom: '15px',
   },
-<<<<<<< HEAD
->>>>>>> 92e2bc96f8789c3e9613dd6b9560f5f98ca2ff69
-=======
+
   statusMessage: {
     marginTop: '15px',
     color: 'yellow', // or any other color you prefer
   },  
->>>>>>> 9b9496af1550edcbd4973ef9d48620b6b83b1a2d
 };
 
 export default SubmitArticle;

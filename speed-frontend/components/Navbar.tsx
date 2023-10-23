@@ -16,11 +16,7 @@ const Navbar: React.FC = () => {
           <Link href="/submit">Submit Evidence</Link>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
-<<<<<<< HEAD
-          <Link href="/show-articles">Show Current Articles</Link>
-=======
           <Link href="/view-articles">View Current Articles</Link>
->>>>>>> 9b9496af1550edcbd4973ef9d48620b6b83b1a2d
         </li>
       </ul>
     </nav>
