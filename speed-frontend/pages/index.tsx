@@ -2,11 +2,7 @@
 import React, { useState } from 'react';
 import '../src/app/globals.css';
 import Navbar from '../components/Navbar'; // Import the Navbar component
-<<<<<<< Updated upstream
-import Link from "next/link";
-=======
 import axios from 'axios'; // Ensure you've installed axios
->>>>>>> Stashed changes
 
 const IndexPage: React.FC = () => {
 
