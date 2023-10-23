@@ -2,26 +2,38 @@ const express = require('express');
 const app = express();
 const port = 5000; // Choose a port for your server
 const { MongoClient } = require('mongodb');
-const cors = require('cors');
-app.use(cors());
 
 // MongoDB connection URL
-const uri = "mongodb+srv://grp5405:grp5405@speedapp.x1oolm2.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://grp5405:grp5405@speedapp.x1oolm2.mongodb.net/?retryWrites=true&w=majority"; // Update with your MongoDB URL, username, and password
 
 app.use(express.json()); // Middleware to parse JSON requests
 
-// Create a MongoClient and connect to it
+// Create a MongoClient
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect();
 
-const db = client.db("SPEED_5405"); // Use SPEED_5405 database
-const articlesCollection = db.collection("SPEED"); // Use SPEED collection
+async function run() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+run().catch(console.dir);
 
 // Define your routes and APIs here
 app.get('/search', async (req, res) => {
   const searchTerm = req.query.searchTerm;
   try {
-    const results = await articlesCollection.find({ title: searchTerm }).toArray(); // Assuming you want to search by title
+    // Customize your MongoDB query based on your data structure
+    const results = await yourMongoDBCollection.find({ name: searchTerm }).toArray();
+
     if (results.length > 0) {
       res.json(results);
     } else {
@@ -32,23 +44,6 @@ app.get('/search', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
-
-// New POST endpoint to handle article submissions
-app.post('/api/articles', async (req, res) => {
-  res.json({ message: "Hardcoded success!" });
-  try {
-    const result = await articlesCollection.insertOne(req.body);
-    if (result.insertedCount > 0) {
-      res.json({ message: "Article successfully inserted!", id: result.insertedId });
-    } else {
-      res.status(400).json({ error: 'Failed to insert article. Data might be missing or in incorrect format.' });
-    }
-  } catch (error) {
-    console.error('Error inserting article:', error);
-    res.status(500).json({ error: 'An error occurred' });
-  }
-});
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
