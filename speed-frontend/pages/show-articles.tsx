@@ -10,7 +10,7 @@ const ShowArticles: React.FC = () => {
   ];
 
   return (
-    <div>
+    <div style={{ color: 'white' }}>
       <h1>Show Current Articles</h1>
       <ul>
         {articles.map((article, index) => (
