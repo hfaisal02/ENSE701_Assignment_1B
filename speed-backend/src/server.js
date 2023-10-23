@@ -2,43 +2,26 @@ const express = require('express');
 const app = express();
 const port = 5000; // Choose a port for your server
 const { MongoClient } = require('mongodb');
+const cors = require('cors');
+app.use(cors());
 
 // MongoDB connection URL
-const uri = "mongodb+srv://grp5405:grp5405@speedapp.x1oolm2.mongodb.net/?retryWrites=true&w=majority"; // Update with your MongoDB URL, username, and password
+const uri = "mongodb+srv://grp5405:grp5405@speedapp.x1oolm2.mongodb.net/?retryWrites=true&w=majority";
 
 app.use(express.json()); // Middleware to parse JSON requests
 
-// Create a MongoClient
+// Create a MongoClient and connect to it
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect();
 
-async function run() {
-  try {
-    // Connect the client to the server
-    await client.connect();
-
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-
-run().catch(console.dir);
+const db = client.db("SPEED_5405"); // Use SPEED_5405 database
+const articlesCollection = db.collection("SPEED"); // Use SPEED collection
 
 // Define your routes and APIs here
-// Existing search endpoint
-app.get('/api/search', async (req, res) => {
+app.get('/search', async (req, res) => {
   const searchTerm = req.query.searchTerm;
   try {
-<<<<<<< HEAD
-    const results = await articlesCollection.find({ title: new RegExp(searchTerm, 'i') }).toArray(); // Using regex for case-insensitive and partial match
-=======
-    // Customize your MongoDB query based on your data structure
-    const results = await yourMongoDBCollection.find({ name: searchTerm }).toArray();
-
->>>>>>> d2bac6ba96ac39bf98ac5e8ee64806917f66e17b
+    const results = await articlesCollection.find({ title: searchTerm }).toArray(); // Assuming you want to search by title
     if (results.length > 0) {
       res.json(results);
     } else {
@@ -49,8 +32,6 @@ app.get('/api/search', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
-<<<<<<< HEAD
-
 
 app.get('/api/articles', async (req, res) => {
   try {
@@ -78,8 +59,6 @@ app.post('/api/articles', async (req, res) => {
   }
 });
 
-=======
->>>>>>> d2bac6ba96ac39bf98ac5e8ee64806917f66e17b
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -1,45 +1,30 @@
 // pages/index.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import '../src/app/globals.css';
 import Navbar from '../components/Navbar'; // Import the Navbar component
-import axios from 'axios'; // Ensure you've installed axios
+import Link from "next/link";
 
 const IndexPage: React.FC = () => {
 
-  const [searchTerm, setSearchTerm] = useState(''); // State to manage search term
-
-  const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  //The following method is obsolete
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // Call the backend API for searching
-    try {
-      const response = await axios.get('http://localhost:5000/api/search', { params: { searchTerm } });
-      console.log(response.data); // Log the fetched articles for now
-      // TODO: Navigate to a search results page or display the results on this page
-    } catch (error) {
-      console.error('Error searching articles:', error);
-    }
+    //Nav to search results page
+    console.log("Searching for...");
   };
-
   return (
     <div style={styles.container}>
       <Navbar /> {/* Include the Navbar component here */}
       <h1 style={styles.heading}>SPEED</h1>
       <h2 style={styles.subheading}>Software Practice Empirical Evidence Database </h2>
-      <form onSubmit={handleSearchSubmit} style={styles.searchContainer as React.CSSProperties}>
-        <input 
-          type="text" 
-          placeholder="Search SPEED..." 
-          style={styles.searchInput} 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
-        />
+      <div style={styles.searchContainer as React.CSSProperties}>
+        <input type="text" placeholder="Search SPEED..." style={styles.searchInput} />
         <div style={styles.searchIcon}>🔍</div>
-        <button type="submit" style={styles.searchButton}>Search</button> {/* Convert div to button for form submission */}
-      </form>
+        <div style={styles.searchButton}>Search</div> {/* Add a "Search" button */}
+      </div>
     </div>
   );
-}
+  }
 const styles = {
   container: {
     display: 'flex',
