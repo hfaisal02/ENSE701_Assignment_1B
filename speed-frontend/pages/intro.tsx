@@ -7,7 +7,7 @@ const IndexPage: React.FC = () => {
     <h1 style={styles.heading}>Intro to SPEED</h1> {/* New heading */}
   <div>
     <Navbar/> {/*Navbar Component*/}
-    <label>SPEED is a dynamic platform designed to assist software developers in making informed decisions about the use of various software
+    <label style={styles.label as React.CSSProperties}>SPEED is a dynamic platform designed to assist software developers in making informed decisions about the use of various software
       <br></br>engineering practices. Recognizing the challenges faced by practitioners in accessing academic research on software engineering, 
       <br></br>SPEED centralizes evidence from published studies to validate claims made about different software engineering practices. 
       <br></br>Users can easily search for empirical evidence related to specific software engineering practices, such as Test-Driven Development (TDD),
@@ -30,16 +30,19 @@ const styles = {
     height: '100vh',
   },
   heading: {
-    fontSize: '2rem',
-    color: '#ffffff',
-    marginBottom: '20px',
+    fontFamily: 'NextFont', // Apply the font here
+    fontSize: '4rem',
+    color: '#fff',
+    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
   },
   label: {
+    textAlign: 'center',
+    maxWidth: '1000px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh',
+    height: '',
   }
 };
 
