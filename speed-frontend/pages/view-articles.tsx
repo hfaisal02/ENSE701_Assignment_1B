@@ -18,10 +18,10 @@ const ViewArticles: React.FC = () => {
   }, []);
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container as React.CSSProperties}>
       <Navbar />
       <h1 style={styles.heading}>Current Articles</h1>
-      <table style={styles.table}>
+      <table style={styles.table as React.CSSProperties}>
         <thead>
           <tr>
             <th>Title</th>
