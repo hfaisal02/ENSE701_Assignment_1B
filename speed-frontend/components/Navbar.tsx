@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
-    <nav style={styles.navbar as React.CSSProperties}>
+      <nav style={styles.navbar as React.CSSProperties}>
       <ul style={styles.navList}>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <Link href="/">Home Page</Link>
@@ -14,9 +14,6 @@ const Navbar: React.FC = () => {
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <Link href="/submit">Submit Evidence</Link>
-        </li>
-        <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
-          <Link href="/show-articles">Show Current Articles</Link>
         </li>
       </ul>
     </nav>
