@@ -3,23 +3,19 @@ import React, { useState } from 'react';
 import '../src/app/globals.css';
 import Navbar from '../components/Navbar'; // Import the Navbar component
 import axios from 'axios'; // Ensure you've installed axios
+import { useRouter } from 'next/router';
 
 const IndexPage: React.FC = () => {
 
   const [searchTerm, setSearchTerm] = useState(''); // State to manage search term
+  const router = useRouter();
 
   const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // Call the backend API for searching
-    try {
-      const response = await axios.get('http://localhost:5000/api/search', { params: { searchTerm } });
-      console.log(response.data); // Log the fetched articles for now
-      // TODO: Navigate to a search results page or display the results on this page
-    } catch (error) {
-      console.error('Error searching articles:', error);
-    }
-  };
+    const searchTerm = event.currentTarget.search.value;  // Assuming the name attribute of the input is "search"
+    
+    router.push(`/search?term=${searchTerm}`);  // Navigate to the search results page
+};
 
   return (
     <div style={styles.container}>
@@ -27,13 +23,7 @@ const IndexPage: React.FC = () => {
       <h1 style={styles.heading}>SPEED</h1>
       <h2 style={styles.subheading}>Software Practice Empirical Evidence Database </h2>
       <form onSubmit={handleSearchSubmit} style={styles.searchContainer as React.CSSProperties}>
-        <input 
-          type="text" 
-          placeholder="Search SPEED..." 
-          style={styles.searchInput} 
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm on input change
-        />
+      <input type="text" placeholder="Search SPEED..." name="search" style={styles.searchInput} />
         <div style={styles.searchIcon}>🔍</div>
         <button type="submit" style={styles.searchButton}>Search</button> {/* Convert div to button for form submission */}
       </form>
