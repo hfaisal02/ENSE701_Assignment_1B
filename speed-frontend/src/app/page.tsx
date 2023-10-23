@@ -2,6 +2,7 @@
 import React from 'react';
 import './globals.css'; // Import the CSS file
 import Navbar from '../components/Navbar'; // Import the Navbar component
+import Link from "next/link";
 
 const IndexPage: React.FC = () => {
 

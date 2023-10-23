@@ -29,8 +29,8 @@ const SubmitArticle: React.FC = () => {
     }
   };
 
-  return (
-      <div style={styles.container as React.CSSProperties}>
+  return ( //submit article table format
+      <div style={styles.container as React.CSSProperties}> 
       <form onSubmit={handleSubmit}>
         <label>Title:
           <input type="text" name="title" value={articleData.title} onChange={handleChange} />
