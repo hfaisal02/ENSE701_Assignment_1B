@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 
 const ViewArticles: React.FC = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState<any[]>([]);
 
   useEffect(() => {
-    // Fetch the articles when the component is mounted
-    const fetchArticles = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/articles');
         setArticles(response.data);
@@ -15,14 +14,13 @@ const ViewArticles: React.FC = () => {
         console.error('Error fetching articles:', error);
       }
     };
-
-    fetchArticles();
+    fetchData();
   }, []);
 
   return (
-    <div style={styles.container as React.CSSProperties}>
+    <div style={styles.container}>
       <Navbar />
-      <h1>Current Articles</h1>
+      <h1 style={styles.heading}>Current Articles</h1>
       <table style={styles.table}>
         <thead>
           <tr>
@@ -53,15 +51,37 @@ const ViewArticles: React.FC = () => {
 
 const styles = {
   container: {
-    padding: '20px',
-    maxWidth: '80%',
-    margin: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    color: '#fff',
+  },
+  heading: {
+    marginBottom: '20px',
+    fontSize: '2rem',
   },
   table: {
-    width: '100%',
+    width: '80%',
+    margin: 'auto',
     borderCollapse: 'collapse',
+    color: '#fff',
+    border: '1px solid #fff', // Overall border for the table
   },
-  // Add more styles as needed
+  th: {
+    padding: '8px 15px',
+    borderBottom: '1px solid #fff',  // White bottom border for headers
+    backgroundColor: '#555',
+    textAlign: 'center', // Center the contents horizontally
+    verticalAlign: 'middle', // Center the contents vertically
+  },
+  td: {
+    padding: '8px 15px',
+    borderBottom: '1px solid #fff',  // White bottom border for cells
+    textAlign: 'center', // Center the contents horizontally
+    verticalAlign: 'middle', // Center the contents vertically
+  },
 };
 
 export default ViewArticles;
