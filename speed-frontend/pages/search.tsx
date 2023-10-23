@@ -47,7 +47,6 @@ const styles: Record<string, React.CSSProperties> = {
       justifyContent: 'center',
       height: '100vh',
       color: '#fff',
-      backgroundColor: '#333',
       padding: '10px',
     },
     heading: {
