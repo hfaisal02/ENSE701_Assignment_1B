@@ -1,27 +1,35 @@
 const express = require('express');
 const app = express();
-const port = 5000; // Choose a port for your server
+const port = 5000;
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
 app.use(cors());
 
-// MongoDB connection URL
 const uri = "mongodb+srv://grp5405:grp5405@speedapp.x1oolm2.mongodb.net/?retryWrites=true&w=majority";
 
-app.use(express.json()); // Middleware to parse JSON requests
+app.use(express.json());
 
-// Create a MongoClient and connect to it
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect();
 
-const db = client.db("SPEED_5405"); // Use SPEED_5405 database
-const articlesCollection = db.collection("SPEED"); // Use SPEED collection
+let articlesCollection;
 
-// Define your routes and APIs here
-app.get('/search', async (req, res) => {
+client.connect()
+  .then(() => {
+    console.log('Connected to MongoDB');
+    const db = client.db("SPEED_5405");
+    articlesCollection = db.collection("SPEED");
+  })
+  .catch(err => {
+    console.error('Error connecting to MongoDB:', err);
+  });
+
+// ... [Rest of your routes] ...
+
+// Existing search endpoint
+app.get('/api/search', async (req, res) => {
   const searchTerm = req.query.searchTerm;
   try {
-    const results = await articlesCollection.find({ title: searchTerm }).toArray(); // Assuming you want to search by title
+    const results = await articlesCollection.find({ title: new RegExp(searchTerm, 'i') }).toArray(); // Using regex for case-insensitive and partial match
     if (results.length > 0) {
       res.json(results);
     } else {
@@ -45,7 +53,6 @@ app.get('/api/articles', async (req, res) => {
 
 // New POST endpoint to handle article submissions
 app.post('/api/articles', async (req, res) => {
-  res.json({ message: "Hardcoded success!" });
   try {
     const result = await articlesCollection.insertOne(req.body);
     if (result.insertedCount > 0) {

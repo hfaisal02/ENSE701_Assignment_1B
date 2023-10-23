@@ -66,6 +66,7 @@ const SubmitArticle: React.FC = () => {
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
         </div>
         <button type="submit" style={styles.button}>Submit Article</button>
+        {submissionStatus && <p style={{ color: '#ffffff' }}>{submissionStatus}</p>}
       </form>
     </div>
   );
