@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // You'll need to import Axios or your preferred HTTP client
+import axios from 'axios';
 
 const SubmitArticle: React.FC = () => {
   const [articleData, setArticleData] = useState({
@@ -30,29 +30,30 @@ const SubmitArticle: React.FC = () => {
   };
 
   return (
-      <div style={styles.container as React.CSSProperties}>
+    <div style={styles.container as React.CSSProperties}>
+      <h1 style={styles.heading}>Submit Evidence</h1> {/* New heading */}
       <form onSubmit={handleSubmit}>
-        <label>Title:
+        <label style={styles.label}>Title:
           <input type="text" name="title" value={articleData.title} onChange={handleChange} />
         </label>
         <br />
-        <label>Authors:
+        <label style={styles.label}>Authors:
           <input type="text" name="authors" value={articleData.authors} onChange={handleChange} />
         </label>
         <br />
-        <label>Year:
+        <label style={styles.label}>Year:
           <input type="number" name="year" value={articleData.year} onChange={handleChange} />
         </label>
         <br />
-        <label>Journal/Conference:
+        <label style={styles.label}>Journal/Conference:
           <input type="text" name="journal" value={articleData.journal} onChange={handleChange} />
         </label>
         <br />
-        <label>DOI:
+        <label style={styles.label}>DOI:
           <input type="text" name="doi" value={articleData.doi} onChange={handleChange} />
         </label>
         <br />
-        <label>Abstract:
+        <label style={styles.label}>Abstract:
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
         </label>
         <br />
@@ -69,6 +70,14 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
+  },
+  heading: {
+    fontSize: '2rem',
+    color: '#ffffff', // White color for the heading
+    marginBottom: '20px', // Some space below the heading
+  },
+  label: {
+    marginBottom: '10px', // Space between the label and its input field
   },
 };
 

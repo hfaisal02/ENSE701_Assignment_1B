@@ -6,11 +6,11 @@ const Navbar: React.FC = () => {
   return (
       <nav style={styles.navbar as React.CSSProperties}>
       <ul style={styles.navList}>
-      <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
-          <a href="/">Home Page</a>
+        <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
+          <Link href="/">Home Page</Link>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
-          <a href="/intro">Intro to SPEED</a>
+          <Link href="/intro">Intro to SPEED</Link>
         </li>
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <Link href="/submit">Submit Evidence</Link>
