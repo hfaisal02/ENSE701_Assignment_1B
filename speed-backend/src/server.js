@@ -33,6 +33,16 @@ app.get('/search', async (req, res) => {
   }
 });
 
+app.get('/api/articles', async (req, res) => {
+  try {
+    const allArticles = await articlesCollection.find({}).toArray(); // Get all articles without any filter
+    res.json(allArticles);
+  } catch (error) {
+    console.error('Error fetching all articles:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
+
 // New POST endpoint to handle article submissions
 app.post('/api/articles', async (req, res) => {
   res.json({ message: "Hardcoded success!" });
