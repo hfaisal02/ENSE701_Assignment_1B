@@ -39,31 +39,31 @@ const SearchResults: React.FC = () => {
   );
 };
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    color: '#fff',
-    padding: '10px',
-  },
-  heading: {
-    marginBottom: '20px',
-    fontSize: '2rem',
-  },
-  jsonOutput: {
-    backgroundColor: '#555',
-    borderRadius: '5px',
-    padding: '10px',
-    margin: '10px 0',
-    width: '80%',
-    overflowX: 'auto',
-  },
-  noResults: {
-    fontSize: '1.5rem',
-  },
-};
-
+const styles: Record<string, React.CSSProperties> = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      color: '#fff',
+      backgroundColor: '#333',
+      padding: '10px',
+    },
+    heading: {
+      marginBottom: '20px',
+      fontSize: '2rem',
+    },
+    jsonOutput: {
+      backgroundColor: '#555',
+      borderRadius: '5px',
+      padding: '10px',
+      margin: '10px 0',
+      width: '80%',
+      overflowX: 'auto',
+    },
+    noResults: {
+      fontSize: '1.5rem',
+    },
+  };
 export default SearchResults;
