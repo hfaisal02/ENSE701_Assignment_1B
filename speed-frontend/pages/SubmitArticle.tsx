@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // You'll need to import Axios or your preferred HTTP client
-import Navbar from '../components/Navbar';
-
+import axios from 'axios';
+import Navbar from '../components/Navbar'; // Import the Navbar component
 
 const SubmitArticle: React.FC = () => {
   const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
@@ -34,37 +33,39 @@ const SubmitArticle: React.FC = () => {
     }
 
     // Always set the submission status to the desired message
-    setSubmissionStatus("Article has been sent for moderation!");   
+    setSubmissionStatus("Article has been sent for moderation");
 };
 
   return (
-      <div style={styles.container as React.CSSProperties}>
+    <div style={styles.container as React.CSSProperties}>
+      <Navbar /> {/* Navbar Component */}
+      <h1 style={styles.heading}>Submit Evidence</h1> {/* New heading */}
       <form onSubmit={handleSubmit}>
-        <label>Title:
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>Title:</label>
           <input type="text" name="title" value={articleData.title} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Authors:
+        </div>
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>Authors:</label>
           <input type="text" name="authors" value={articleData.authors} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Year:
+        </div>
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>Year:</label>
           <input type="number" name="year" value={articleData.year} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Journal/Conference:
+        </div>
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>Journal/Conference:</label>
           <input type="text" name="journal" value={articleData.journal} onChange={handleChange} />
-        </label>
-        <br />
-        <label>DOI:
+        </div>
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>DOI:</label>
           <input type="text" name="doi" value={articleData.doi} onChange={handleChange} />
-        </label>
-        <br />
-        <label>Abstract:
+        </div>
+        <div style={styles.fieldContainer}>
+          <label style={styles.label}>Abstract:</label>
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
-        </label>
+        </div>
         <button type="submit" style={styles.button}>Submit Article</button>
-        {submissionStatus && <p style={{ color: '#ffffff' }}>{submissionStatus}</p>}
       </form>
     </div>
   );
@@ -96,11 +97,6 @@ const styles = {
     alignItems: 'flex-start',
     marginBottom: '15px',
   },
-
-  statusMessage: {
-    marginTop: '15px',
-    color: 'yellow', // or any other color you prefer
-  },  
 };
 
 export default SubmitArticle;
