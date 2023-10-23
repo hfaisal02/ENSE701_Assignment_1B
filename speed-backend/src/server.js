@@ -18,10 +18,11 @@ const db = client.db("SPEED_5405"); // Use SPEED_5405 database
 const articlesCollection = db.collection("SPEED"); // Use SPEED collection
 
 // Define your routes and APIs here
-app.get('/search', async (req, res) => {
+// Existing search endpoint
+app.get('/api/search', async (req, res) => {
   const searchTerm = req.query.searchTerm;
   try {
-    const results = await articlesCollection.find({ title: searchTerm }).toArray(); // Assuming you want to search by title
+    const results = await articlesCollection.find({ title: new RegExp(searchTerm, 'i') }).toArray(); // Using regex for case-insensitive and partial match
     if (results.length > 0) {
       res.json(results);
     } else {
@@ -32,6 +33,7 @@ app.get('/search', async (req, res) => {
     res.status(500).json({ error: 'An error occurred' });
   }
 });
+
 
 app.get('/api/articles', async (req, res) => {
   try {
