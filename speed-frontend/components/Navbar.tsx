@@ -15,6 +15,9 @@ const Navbar: React.FC = () => {
         <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
           <Link href="/submit">Submit Evidence</Link>
         </li>
+        <li style={{ ...styles.navItem, ...styles.navItemBold } as React.CSSProperties}>
+          <Link href="/view-articles">View Current Articles</Link>
+        </li>
       </ul>
     </nav>
   );
