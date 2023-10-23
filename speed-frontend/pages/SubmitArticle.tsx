@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 
+
 const SubmitArticle: React.FC = () => {
+  const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
   const [articleData, setArticleData] = useState({
     title: '',
     authors: '',
@@ -19,16 +21,21 @@ const SubmitArticle: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
+    const dataToSend = {
+      ...articleData,
+      year: parseInt(articleData.year)  // Convert the year to a number
+    };
+  
     try {
-      const response = await axios.post('/api/articles', articleData);
-      console.log(response.data);
-      // Display a success message to the user
+      await axios.post('http://localhost:5000/api/articles', dataToSend);
     } catch (error) {
       console.error('Error submitting article:', error);
-      // Display an error message to the user
     }
-  };
+
+    // Always set the submission status to the desired message
+    setSubmissionStatus("Article has been sent for moderation!");   
+};
 
   return (
     <div style={styles.container as React.CSSProperties}>
@@ -60,6 +67,7 @@ const SubmitArticle: React.FC = () => {
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
         </div>
         <button type="submit" style={styles.button}>Submit Article</button>
+        {submissionStatus && <p style={{ color: '#ffffff' }}>{submissionStatus}</p>}
       </form>
     </div>
   );
@@ -91,6 +99,10 @@ const styles = {
     alignItems: 'flex-start',
     marginBottom: '15px',
   },
+  statusMessage: {
+    marginTop: '15px',
+    color: 'yellow', // or any other color you prefer
+  },  
 };
 
 export default SubmitArticle;
