@@ -1,5 +1,5 @@
 import React from 'react';
-import SubmitArticle from '../../src/app/SubmitArticle';
+import SubmitArticle from './SubmitArticle';
 // Import the SubmitArticle component
 
 const SubmitPage: React.FC = () => {
