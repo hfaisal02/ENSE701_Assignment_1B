@@ -42,27 +42,27 @@ const SubmitArticle: React.FC = () => {
       <Navbar/> {/*Navbar Component*/}
       <h1 style={styles.heading}>Submit Evidence</h1> {/* New heading */}
       <form onSubmit={handleSubmit}>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>Title:</label>
           <input type="text" name="title" value={articleData.title} onChange={handleChange} />
         </div>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>Authors:</label>
           <input type="text" name="authors" value={articleData.authors} onChange={handleChange} />
         </div>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>Year:</label>
           <input type="number" name="year" value={articleData.year} onChange={handleChange} />
         </div>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>Journal/Conference:</label>
           <input type="text" name="journal" value={articleData.journal} onChange={handleChange} />
         </div>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>DOI:</label>
           <input type="text" name="doi" value={articleData.doi} onChange={handleChange} />
         </div>
-        <div style={styles.container as React.CSSProperties}>
+        <div style={styles.fieldContainer}>
           <label style={styles.label}>Abstract:</label>
           <textarea name="abstract" value={articleData.abstract} onChange={handleChange} />
         </div>
