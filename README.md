@@ -24,9 +24,9 @@ To run the Speed App, you need to have the backend server and frontend server up
 Backend Server
 Navigate to the backend directory:
 
-bash
-Copy code
+```bash
 cd speed-backend/src
+
 Run the backend server by executing the following command in your terminal:
 
 Copy code
@@ -37,16 +37,16 @@ Frontend Server
 Navigate to the frontend directory:
 
 bash
-Copy code
+
 cd speed-frontend
 Install the required dependencies by running:
 
-Copy code
+```bash
 npm install
 Start the frontend development server:
 
-arduino
-Copy code
+
+```bash
 npm run dev
 This will launch the frontend of the Speed App and make it accessible in your web browser.
 
