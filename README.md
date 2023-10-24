@@ -18,7 +18,7 @@ ivan.yang@aut.ac.nz 
 
 This repository contains a web application built with Next.js, Vercel, and MongoDB. In order for the backend and frontend to operate properly, please follow the instructions below.
 
-Getting Started
+## Getting Started
 To run the Speed App, you need to have the backend server and frontend server up and running. Follow the steps below to set up and run the application.
 
 Backend Server
