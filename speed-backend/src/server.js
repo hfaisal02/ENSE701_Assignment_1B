@@ -23,8 +23,6 @@ client.connect()
     console.error('Error connecting to MongoDB:', err);
   });
 
-// ... [Rest of your routes] ...
-
 // Existing search endpoint
 app.get('/api/search', async (req, res) => {
   const searchTerm = req.query.searchTerm;
