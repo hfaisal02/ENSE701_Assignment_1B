@@ -61,4 +61,4 @@ Please make sure you have all the dependencies for the MERN stack installed in o
 Enjoy using the Speed App! If you encounter any issues or have questions, feel free to reach out to our support team.
 
 ## Homepage Screenshot
-![Local Image](images/my-image.png)
+![Local Image](speed screenshot.png)
