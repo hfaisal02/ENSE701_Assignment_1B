@@ -26,28 +26,31 @@ Navigate to the backend directory:
 
 ```bash
 cd speed-backend/src
-
+```
 Run the backend server by executing the following command in your terminal:
 
-Copy code
+
 node server.js
 This will start the backend server, allowing it to handle API requests and database operations.
 
 Frontend Server
 Navigate to the frontend directory:
 
-bash
 
+```bash
 cd speed-frontend
+```
 Install the required dependencies by running:
 
 ```bash
 npm install
+```
 Start the frontend development server:
 
 
 ```bash
 npm run dev
+```
 This will launch the frontend of the Speed App and make it accessible in your web browser.
 
 NOTE
