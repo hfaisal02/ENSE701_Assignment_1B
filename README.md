@@ -10,7 +10,10 @@ Toryn Pope,
 Putheara Uth
 
 Lecturer: tony.clear@aut.ac.nz
+
+
 Tutors:
+
 jingchang.chen@autuni.ac.nz
 ivan.yang@aut.ac.nz 
 
