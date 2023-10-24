@@ -9,6 +9,7 @@ Putheara Uth
 
 
 
-tony.clear@aut.ac.nz
+Lecturer: tony.clear@aut.ac.nz
+Tutors:
 jingchang.chen@autuni.ac.nz
 ivan.yang@aut.ac.nz 
