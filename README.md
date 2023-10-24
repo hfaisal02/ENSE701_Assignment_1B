@@ -61,4 +61,4 @@ Please make sure you have all the dependencies for the MERN stack installed in o
 Enjoy using the Speed App! If you encounter any issues or have questions, feel free to reach out to our support team.
 
 ## Homepage Screenshot
-![Local Image](ENSE701_Assignment_1B/speed screenshot.png)
+![Speed screenshot](https://github.com/hfaisal02/ENSE701_Assignment_1B/blob/master/speed%20screenshot.png)
