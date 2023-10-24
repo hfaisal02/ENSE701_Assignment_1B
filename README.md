@@ -59,3 +59,6 @@ This will launch the frontend of the Speed App and make it accessible in your we
 Please make sure you have all the dependencies for the MERN stack installed in order for this web application to run smoothly. If you haven't already, you can install them by following the documentation for MongoDB, Node.js, and React.js.
 
 Enjoy using the Speed App! If you encounter any issues or have questions, feel free to reach out to our support team.
+
+## Homepage Screenshot
+![Local Image](images/my-image.png)
